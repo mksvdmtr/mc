@@ -29,8 +29,10 @@ yay -S google-chrome rbenv ruby-build composer deployer sublime-text-3-imfix dbe
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
 RUBY_VERSION=$(rbenv install -l 2>/dev/null | head -1)
 echo -e "\e[92m\e[1m Install ruby-$RUBY_VERSION\e[0m"
-printf "%$(tput cols)s\n"|sed "s/ /#/g"
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+exec $SHELL
 rbenv install $RUBY_VERSION
+gem install bundler
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
 echo -e "\e[92m\e[1m Configure keyboard lang and panel label\e[0m"
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
