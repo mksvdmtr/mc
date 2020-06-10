@@ -11,10 +11,15 @@ echo -e "\e[92m\e[1m Upgrade packages\e[0m"
 sudo pacman-mirrors -c Russia
 sudo pacman -Syyu --noconfirm
 echo -e "\e[92m\e[1m Install packages from pacman\e[0m"
-sudo pacman -S base-devel yay php nodejs npm yarn postgresql pgadmin4 go vim atom --noconfirm
+sudo pacman -S base-devel yay php nodejs npm yarn postgresql pgadmin4 go vim atom plank --noconfirm
 echo -e "\e[92m\e[1m Install packages from yay\e[0m"
-yay -S google-chrome rbenv composer deployer sublime-text-3-imfix --noconfirm
+yay -S google-chrome rbenv composer deployer sublime-text-3-imfix yay -S plank-theme-arc --noconfirm
 echo -e "\e[92m\e[1m Configure keyboard lang and panel label\e[0m"
+cp -rv ./dconf ~/.config/
+cp -rv ./plank ~/.config/
+cp -rv ./plank.desktop ~/.config/autostart/plank.desktop
+cp -v ./xfwm4.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
+cp -v ./xfce4-desktop.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
 cp -v ./keyboard-layout.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml
 cp -v ./xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 clear
