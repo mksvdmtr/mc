@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
 echo -e "\e[92m\e[1m Add $USER to sudoers\e[0m"
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
