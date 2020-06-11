@@ -1,6 +1,6 @@
 ## What that script do:
 
-- make swap file
+- makes swap file
 - sets time zone Europe/Moscow
 - adds Russian keyboard layout
 - upgrades system
