@@ -21,7 +21,7 @@ sudo pacman -Syyu --noconfirm
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
 echo -e "\e[92m\e[1m Install packages from pacman\e[0m"
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
-sudo pacman -S base-devel yay php nodejs npm yarn postgresql go vim atom plank --noconfirm
+sudo pacman -S base-devel yay php nodejs npm yarn postgresql go vim code plank --noconfirm
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
 echo -e "\e[92m\e[1m Install packages from yay\e[0m"
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
