@@ -21,7 +21,12 @@ sudo pacman -Syyu --noconfirm
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
 echo -e "\e[92m\e[1m Install packages from pacman\e[0m"
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
-sudo pacman -S base-devel yay php nodejs npm yarn postgresql go vim code plank --noconfirm
+sudo pacman -S base-devel yay php nodejs npm yarn postgresql go vim code plank ntp --noconfirm
+printf "%$(tput cols)s\n"|sed "s/ /#/g"
+echo -e "\e[92m\e[1m Set time-zone\e[0m"
+printf "%$(tput cols)s\n"|sed "s/ /#/g"
+sudo timedatectl set-timezone Europe/Moscow
+sudo timedatectl set-ntp true
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
 echo -e "\e[92m\e[1m Install packages from yay\e[0m"
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
@@ -31,6 +36,7 @@ RUBY_VERSION=$(rbenv install -l 2>/dev/null | head -1)
 echo -e "\e[92m\e[1m Install ruby-$RUBY_VERSION\e[0m"
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+source ~/.bashrc
 rbenv install $RUBY_VERSION
 rbenv local $RUBY_VERSION
 gem install bundler
