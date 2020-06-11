@@ -8,4 +8,5 @@
 - sets shortcuts:
   - Ctrl + Shift - change keyboard layout
   - Ctrl + Shift + P - make screenshot in flameshot
+- makes some bonus tunes xfce
 - reboots system
