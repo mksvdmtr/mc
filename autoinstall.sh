@@ -37,6 +37,7 @@ printf "%$(tput cols)s\n"|sed "s/ /#/g"
 echo -e "\e[92m\e[1m Configure keyboard lang and panel label\e[0m"
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
 cp -rv ./dconf ~/.config/
+rm ~/.config/plank/dock1/launchers/*
 cp -rv ./plank ~/.config/
 cp -rv ./plank.desktop ~/.config/autostart/plank.desktop
 cp -v ./xfwm4.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
