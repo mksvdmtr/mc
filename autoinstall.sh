@@ -30,7 +30,7 @@ sudo timedatectl set-ntp true
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
 echo -e "\e[92m\e[1m Install packages from yay\e[0m"
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
-yay -S google-chrome rbenv ruby-build composer deployer sublime-text-3-imfix dbeaver plank-theme-arc --noconfirm
+yay -S google-chrome rbenv ruby-build composer deployer sublime-text-3-imfix dbeaver plank-theme-arc flameshot --noconfirm
 printf "%$(tput cols)s\n"|sed "s/ /#/g"
 RUBY_VERSION=$(rbenv install -l 2>/dev/null | head -1)
 echo -e "\e[92m\e[1m Install ruby-$RUBY_VERSION\e[0m"
@@ -48,6 +48,7 @@ rm ~/.config/plank/dock1/launchers/*
 cp -rv ./plank ~/.config/
 cp -rv ./plank.desktop ~/.config/autostart/plank.desktop
 cp -v ./xfwm4.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
+cp -v ./xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 cp -v ./xfce4-desktop.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
 cp -v ./keyboard-layout.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml
 cp -v ./xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
