@@ -4,7 +4,7 @@
 - sets time zone Europe/Moscow
 - adds Russian keyboard layout
 - upgrades system
-- installs almost some necessary packages for development
+- installs some necessary packages for development
 - sets shortcuts:
   - Ctrl + Shift - change keyboard layout
   - Ctrl + Shift + P - make screenshot in flameshot
