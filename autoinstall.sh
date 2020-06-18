@@ -73,7 +73,7 @@ esac
 message "Configuring keyboard lang and panel label"
 rm $HOME/.config/plank/dock1/launchers/*
 
-for p in ${paths[@]}; do
+for p in "${paths[@]}"; do
 	cp -rv $p
 done
 
