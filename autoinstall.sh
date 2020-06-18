@@ -7,6 +7,17 @@ printf "%$(tput cols)s\n"|sed "s/ /#/g"
 
 }
 
+paths=(
+	"./dconf ~/.config/" 
+	"./plank ~/.config/"
+	"./plank.desktop ~/.config/autostart/plank.desktop"
+	"./xfwm4.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml"
+	"./xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
+	"./xfce4-desktop.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
+	"./keyboard-layout.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml"
+	"./xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
+)
+
 message "Adding $USER to sudoers"
 echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
 message "Making swap"
@@ -33,15 +44,12 @@ rbenv install $RUBY_VERSION
 rbenv local $RUBY_VERSION
 gem install bundler
 message "Configuring keyboard lang and panel label"
-cp -rv ./dconf ~/.config/
 rm ~/.config/plank/dock1/launchers/*
-cp -rv ./plank ~/.config/
-cp -rv ./plank.desktop ~/.config/autostart/plank.desktop
-cp -v ./xfwm4.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
-cp -v ./xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-cp -v ./xfce4-desktop.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
-cp -v ./keyboard-layout.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml
-cp -v ./xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+
+for p in ${paths[@]}; do
+	cp -rv $p
+done
+
 message "Rebooting system ..."
 sleep 3
 sudo reboot
