@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DEV_ENV=$1
+
 function message() {
 	printf "%$(tput cols)s\n"|sed "s/ /#/g"
 	echo -e "\e[92m\e[1m $1 \e[0m"
@@ -73,8 +75,13 @@ sudo timedatectl set-ntp true
 message "Installing packages from yay"
 yay -S google-chrome sublime-text-3-imfix dbeaver plank-theme-arc flameshot --noconfirm
 
-# case
-
+case $DEV_ENV in
+    ruby)
+	ruby_env
+      ;;
+    php)
+	php_brew
+      ;;
 
 message "Configuring keyboard lang and panel label"
 rm ~/.config/plank/dock1/launchers/*
