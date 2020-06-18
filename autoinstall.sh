@@ -16,6 +16,7 @@ function ruby_env() {
 	message "Installing ruby-$RUBY_VERSION"
 	echo 'eval "$(rbenv init -)"' >> $HOME/.bashrc
 	source $HOME/.bashrc
+	eval "$(rbenv init -)"
 	rbenv install $RUBY_VERSION
 	rbenv local $RUBY_VERSION
 	gem install bundler
@@ -23,12 +24,14 @@ function ruby_env() {
 
 function php_env() {
 	message "Installing PHP env"
-	sudo -S mariadb apache php-apache --noconfirm
+	sudo pacman -S mariadb apache php-apache --noconfirm
 	yay -S phpbrew --noconfirm
 	echo "extension=bz2.so" | sudo tee -a /etc/php/php.ini
         phpbrew init
 	echo "[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc" >> $HOME/.bashrc
-	phpbrew install 7.4	
+        source $HOME/.phpbrew/bashrc 
+	phpbrew install 7.4.7
+        phpbrew switch 7.4.7		
 }
 
 paths=(
