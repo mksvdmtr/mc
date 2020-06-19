@@ -30,7 +30,7 @@ function php_env() {
         phpbrew init
 	echo "[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc" >> $HOME/.bashrc
         source $HOME/.phpbrew/bashrc 
-	phpbrew install 7.4.7
+	phpbrew install -j $(nproc) 7.4.7 +default
         phpbrew switch 7.4.7		
 }
 
