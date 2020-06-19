@@ -10,7 +10,7 @@ function message() {
 
 function ruby_env() {
 	message "Installing ROR env"
-	sudo pacman -S postgresql --noconfirm
+	sudo pacman -S postgresql qt5-webkit --noconfirm
 	yay -S rbenv ruby-build --noconfirm
 	RUBY_VERSION=$(rbenv install -l 2>/dev/null | head -1)
 	message "Installing ruby-$RUBY_VERSION"

@@ -14,6 +14,6 @@
 ```
 ./autoinstall.sh [ruby|php]
 ```
-#### How to use dev env:
+#### How to use dev envs:
 ROR - https://github.com/rbenv/rbenv#installing-ruby-versions  
 PHP - https://github.com/phpbrew/phpbrew#basic-usage
