@@ -24,7 +24,7 @@ function ruby_env() {
 
 function php_env() {
 	message "Installing PHP env"
-	sudo pacman -S mariadb apache php-apache --noconfirm
+	sudo pacman -S mariadb apache php-apache postgresql-libs --noconfirm
 	yay -S phpbrew --noconfirm
 	echo "extension=bz2.so" | sudo tee -a /etc/php/php.ini
         phpbrew init
