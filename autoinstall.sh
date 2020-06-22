@@ -11,6 +11,7 @@ function message() {
 function ruby_env() {
 	message "Installing ROR env"
 	sudo pacman -S postgresql qt5-webkit --noconfirm
+	sudo systemctl enable postgresql && sudo systemctl start postgresql
 	yay -S rbenv ruby-build --noconfirm
 	RUBY_VERSION=$(rbenv install -l 2>/dev/null | head -1)
 	message "Installing ruby-$RUBY_VERSION"
@@ -26,6 +27,8 @@ function php_env() {
 	message "Installing PHP env"
 	sudo pacman -S mariadb apache php-apache postgresql-libs --noconfirm
 	sudo systemctl enable httpd && sudo systemctl start httpd
+	sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+	sudo systemctl enable mariadb && sudo systemctl start mariadb
 	yay -S phpbrew --noconfirm
 	echo "extension=bz2.so" | sudo tee -a /etc/php/php.ini
         phpbrew init
