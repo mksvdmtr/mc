@@ -31,6 +31,7 @@ function php_env() {
 	echo "[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc" >> $HOME/.bashrc
         source $HOME/.phpbrew/bashrc 
 	phpbrew install -j $(nproc) 7.4.7 +default+dbs
+	phpbrew ext install imagick 3.4.4
 }
 
 paths=(
