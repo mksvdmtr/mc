@@ -25,12 +25,14 @@ function ruby_env() {
 function php_env() {
 	message "Installing PHP env"
 	sudo pacman -S mariadb apache php-apache postgresql-libs --noconfirm
+	sudo systemctl enable httpd && sudo systemctl start httpd
 	yay -S phpbrew --noconfirm
 	echo "extension=bz2.so" | sudo tee -a /etc/php/php.ini
         phpbrew init
 	echo "[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc" >> $HOME/.bashrc
         source $HOME/.phpbrew/bashrc 
 	phpbrew install -j $(nproc) 7.4.7 +default+dbs
+	phpbrew switch 7.4.7
 	phpbrew ext install imagick 3.4.4
 }
 
