@@ -3,7 +3,7 @@
 - sets time zone Europe/Moscow
 - adds Russian keyboard layout
 - upgrades system
-- installs some necessary packages for development on PHP or ROR
+- installs some necessary packages for development on PHP or Ruby
 - sets shortcuts:
   - Ctrl + Shift - change keyboard layout
   - Ctrl + Shift + P - make screenshot in flameshot
@@ -15,5 +15,5 @@
 ./autoinstall.sh [ruby|php]
 ```
 #### How to use dev envs:
-ROR - https://github.com/rbenv/rbenv#installing-ruby-versions  
+Ruby - https://github.com/rbenv/rbenv#installing-ruby-versions  
 PHP - https://github.com/phpbrew/phpbrew#basic-usage
