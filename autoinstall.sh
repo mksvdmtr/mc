@@ -1,7 +1,5 @@
 #!/bin/bash
 
-DEV_ENV=$1
-
 function message() {
 	printf "%$(tput cols)s\n"|sed "s/ /#/g"
 	echo -e "\e[92m\e[1m $1 \e[0m"
@@ -50,6 +48,19 @@ paths=(
 	"./keyboard-layout.xml $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml"
 	"./xfce4-panel.xml $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
 )
+
+message "What environment to install?
+	1: ruby
+	2: php"
+read CHOICE
+
+case $CHOICE in
+	1) DEV_ENV=ruby
+		;;
+	2) DEV_ENV=php
+		;;
+	*) echo "You have not chosen anything"
+esac
 
 message "Adding $USER to sudoers"
 echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers

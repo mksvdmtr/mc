@@ -12,7 +12,7 @@
 
 #### Usage:
 ```
-./autoinstall.sh [ruby|php]
+./autoinstall.sh
 ```
 #### How to use dev envs:
 Ruby - https://github.com/rbenv/rbenv#installing-ruby-versions  
