@@ -24,11 +24,11 @@ function ruby_env() {
 
 function php_env() {
 	message "Installing PHP env"
-	sudo pacman -S mariadb apache php-apache postgresql-libs --noconfirm
+	sudo pacman -S mariadb apache php-apache postgresql-libs composer --noconfirm
 	sudo systemctl enable httpd && sudo systemctl start httpd
 	sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 	sudo systemctl enable mariadb && sudo systemctl start mariadb
-	yay -S phpbrew --noconfirm
+	yay -S deployer phpbrew --noconfirm
 	echo "extension=bz2.so" | sudo tee -a /etc/php/php.ini
         phpbrew init
 	echo "[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc" >> $HOME/.bashrc
@@ -79,7 +79,7 @@ message "Setting time-zone"
 sudo timedatectl set-timezone Europe/Moscow
 sudo timedatectl set-ntp true
 message "Installing packages from yay"
-yay -S google-chrome sublime-text-3-imfix dbeaver plank-theme-arc flameshot --noconfirm
+yay -S google-chrome sublime-text-3-imfix dbeaver postman plank-theme-arc flameshot --noconfirm
 
 case $DEV_ENV in
     ruby)
