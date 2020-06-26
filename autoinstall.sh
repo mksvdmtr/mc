@@ -79,7 +79,7 @@ message "Setting time-zone"
 sudo timedatectl set-timezone Europe/Moscow
 sudo timedatectl set-ntp true
 message "Installing packages from yay"
-yay -S google-chrome sublime-text-3-imfix dbeaver postman plank-theme-arc flameshot --noconfirm
+yay -S google-chrome dbeaver postman plank-theme-arc flameshot --noconfirm
 
 case $DEV_ENV in
     ruby)
