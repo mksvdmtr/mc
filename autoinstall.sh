@@ -93,9 +93,11 @@ esac
 message "Configuring keyboard lang and panel label"
 rm $HOME/.config/plank/dock1/launchers/*
 
-for p in "${paths[@]}"; do
-	cp -rv $p
-done
+if [ "$XDG_CURRENT_DESKTOP" == "XFCE" ]; then
+	for p in "${paths[@]}"; do
+		cp -rv $p
+	done
+fi
 
 message "Rebooting system ..."
 sleep 3
