@@ -90,10 +90,10 @@ case $DEV_ENV in
       ;;
 esac
 
+if [ "$XDG_CURRENT_DESKTOP" == "XFCE" ]; then
 message "Configuring keyboard lang and panel label"
 rm $HOME/.config/plank/dock1/launchers/*
 
-if [ "$XDG_CURRENT_DESKTOP" == "XFCE" ]; then
 	for p in "${paths[@]}"; do
 		cp -rv $p
 	done
