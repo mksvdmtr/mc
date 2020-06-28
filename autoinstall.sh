@@ -18,7 +18,7 @@ function ruby_env() {
 	source $HOME/.bashrc
 	eval "$(rbenv init -)"
 	rbenv install $RUBY_VERSION
-	rbenv local $RUBY_VERSION
+	rbenv global $RUBY_VERSION
 	gem install bundler
 }
 
