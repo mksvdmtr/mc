@@ -24,7 +24,7 @@ function ruby_env() {
 
 function php_env() {
 	message "Installing PHP env"
-	sudo pacman -S mariadb apache php-apache postgresql-libs composer --noconfirm
+	sudo pacman -S mariadb apache php-apache mysql-workbench postgresql-libs composer --noconfirm
 	sudo systemctl enable httpd && sudo systemctl start httpd
 	sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 	sudo systemctl enable mariadb && sudo systemctl start mariadb
@@ -36,6 +36,8 @@ function php_env() {
 	phpbrew install -j $(nproc) 7.4.7 +default+dbs
 	phpbrew switch 7.4.7
 	phpbrew ext install imagick 3.4.4
+	phpbrew ext install iconv 
+	phpbrew ext install gd 
 }
 
 paths=(
