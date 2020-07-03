@@ -1,5 +1,9 @@
 #!/bin/bash
 
+PHP_VERSION="7.4.7"
+IMAGICK_VERSION="3.4.4"
+SWAPSIZE="8192"
+
 function message() {
 	printf "%$(tput cols)s\n"|sed "s/ /#/g"
 	echo -e "\e[92m\e[1m $1 \e[0m"
@@ -33,9 +37,9 @@ function php_env() {
         phpbrew init
 	echo "[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc" >> $HOME/.bashrc
         source $HOME/.phpbrew/bashrc 
-	phpbrew install -j $(nproc) 7.4.7 +default+dbs
-	phpbrew switch 7.4.7
-	phpbrew ext install imagick 3.4.4
+	phpbrew install -j $(nproc) $PHP_VERSION +default+dbs
+	phpbrew switch $PHP_VERSION
+	phpbrew ext install imagick $IMAGICK_VERSION 
 	phpbrew ext install iconv 
 	phpbrew ext install gd 
 }
@@ -67,7 +71,7 @@ esac
 message "Adding $USER to sudoers"
 echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
 message "Making swap"
-sudo dd if=/dev/zero of=/swapfile bs=1M count=8192
+sudo dd if=/dev/zero of=/swapfile bs=1M count=$SWAPSIZE
 sudo chmod 700 /swapfile
 sudo mkswap /swapfile
 echo -e "/swapfile none swap defaults 0 0" | sudo tee -a /etc/fstab
