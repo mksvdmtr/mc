@@ -42,6 +42,7 @@ function php_env() {
 	phpbrew ext install imagick $IMAGICK_VERSION 
 	phpbrew ext install iconv 
 	phpbrew ext install gd 
+	phpbrew ext install soap
 }
 
 paths=(
