@@ -37,12 +37,12 @@ function php_env() {
         phpbrew init
 	echo "[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc" >> $HOME/.bashrc
         source $HOME/.phpbrew/bashrc 
-	phpbrew install -j $(nproc) $PHP_VERSION +default+dbs
+	phpbrew install -j $(nproc) $PHP_VERSION +default +mysql +gettext +mcrypt +intl +iconv +ftp +exif +dba +openssl +soap +imap +exif -- --with-libdir=lib/x86_64-linux-gnu --with-gd=shared --enable-gd-native-ttf --with-jpeg-dir=/usr --with-png-dir=/usr --with-mysql-sock=/var/run/mysqld/mysqld.sock --with-freetype-dir=/usr/include/freetype2/freetype
 	phpbrew switch $PHP_VERSION
 	phpbrew ext install imagick $IMAGICK_VERSION 
 	phpbrew ext install iconv 
-	phpbrew ext install gd 
 	phpbrew ext install soap
+	phpbrew ext install gd --with-jpeg --with-freetype 
 }
 
 paths=(
