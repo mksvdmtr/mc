@@ -43,6 +43,9 @@ function php_env() {
 	phpbrew ext install iconv 
 	phpbrew ext install soap
 	phpbrew ext install gd --with-jpeg --with-freetype 
+	phpbrew ext install raphf
+	phpbrew ext install propro
+	phpbrew ext install pecl_http
 }
 
 paths=(
