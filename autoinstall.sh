@@ -28,7 +28,7 @@ function ruby_env() {
 
 function php_env() {
 	message "Installing PHP env"
-	sudo pacman -S mariadb apache php-apache mysql-workbench postgresql-libs composer --noconfirm
+	sudo pacman -S mariadb apache php-apache mysql-workbench postgresql-libs composer libmcrypt --noconfirm
 	sudo systemctl enable httpd && sudo systemctl start httpd
 	sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 	sudo systemctl enable mariadb && sudo systemctl start mariadb
@@ -37,12 +37,12 @@ function php_env() {
         phpbrew init
 	echo "[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc" >> $HOME/.bashrc
         source $HOME/.phpbrew/bashrc 
-	phpbrew install -j $(nproc) $PHP_VERSION +default +mysql +gettext +mcrypt +intl +iconv +ftp +exif +dba +openssl +soap +imap +exif -- --with-libdir=lib/x86_64-linux-gnu --with-gd=shared --enable-gd-native-ttf --with-jpeg-dir=/usr --with-png-dir=/usr --with-mysql-sock=/var/run/mysqld/mysqld.sock --with-freetype-dir=/usr/include/freetype2/freetype
+	phpbrew install -j $(nproc) $PHP_VERSION +default +mysql +gettext +mcrypt +intl +iconv +ftp +exif +dba +soap +imap +exif -- --with-libdir=lib/x86_64-linux-gnu --enable-gd-native-ttf --with-freetype-dir=/usr/include/freetype2/freetype
 	phpbrew switch $PHP_VERSION
 	phpbrew ext install imagick $IMAGICK_VERSION 
 	phpbrew ext install iconv 
 	phpbrew ext install soap
-	phpbrew ext install gd --with-jpeg --with-freetype 
+	phpbrew ext install gd -- --with-gd=shared --enable-gd-native-ttf --with-libdir=lib/x86_64-linux-gnu --with-gd=shared --enable-gd-native-ttf --with-jpeg-dir=/usr --with-freetype --with-webp-dir=/usr
 	phpbrew ext install raphf
 	phpbrew ext install propro
 	phpbrew ext install pecl_http
