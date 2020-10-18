@@ -59,7 +59,7 @@ paths=(
 	"./xfce4-panel.xml $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
 )
 
-message "What environment to install?
+message "Which environment to install?
 	1: ruby
 	2: php"
 read CHOICE
