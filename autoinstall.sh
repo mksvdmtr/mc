@@ -37,7 +37,7 @@ function php_env() {
         phpbrew init
 	echo "[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc" >> $HOME/.bashrc
         source $HOME/.phpbrew/bashrc 
-	phpbrew install -j $(nproc) $PHP_VERSION +default +mysql +gettext +mcrypt +intl +iconv +ftp +exif +dba +soap +imap +exif -- --with-libdir=lib/x86_64-linux-gnu --enable-gd-native-ttf --with-freetype-dir=/usr/include/freetype2/freetype
+	phpbrew install -j $(nproc) $PHP_VERSION +default +mysql +gettext +mcrypt +intl +iconv +ftp +exif +dba +soap +imap +exif +openssl=/usr -- --with-libdir=lib/x86_64-linux-gnu --enable-gd-native-ttf --with-freetype-dir=/usr/include/freetype2/freetype --with-libdir=lib64
 	phpbrew switch $PHP_VERSION
 	phpbrew ext install imagick $IMAGICK_VERSION 
 	phpbrew ext install iconv 
@@ -46,6 +46,8 @@ function php_env() {
 	phpbrew ext install raphf
 	phpbrew ext install propro
 	phpbrew ext install pecl_http
+	phpbrew ext install redis
+	
 }
 
 paths=(
