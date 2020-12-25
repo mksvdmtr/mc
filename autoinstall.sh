@@ -28,7 +28,7 @@ function ruby_env() {
 
 function php_env() {
 	message "Installing PHP env"
-	sudo pacman -S mariadb apache php-apache mysql-workbench postgresql-libs composer libmcrypt --noconfirm
+	sudo pacman -S mariadb apache php-apache mysql-workbench postgresql-libs composer libmcrypt imagemagick --noconfirm
 	sudo systemctl enable httpd && sudo systemctl start httpd
 	sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 	sudo systemctl enable mariadb && sudo systemctl start mariadb
