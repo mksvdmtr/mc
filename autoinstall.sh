@@ -40,8 +40,6 @@ function php_env() {
 	phpbrew install -j $(nproc) $PHP_VERSION +default +mysql +gettext +mcrypt +iconv +ftp +exif +dba +soap +imap +exif +openssl=/usr -- --with-libdir=lib/x86_64-linux-gnu --enable-gd-native-ttf --with-freetype-dir=/usr/include/freetype2/freetype --with-libdir=lib64
 	phpbrew switch $PHP_VERSION
 	phpbrew ext install imagick $IMAGICK_VERSION 
-	phpbrew ext install iconv 
-	phpbrew ext install soap
 	phpbrew ext install gd -- --with-gd=shared --enable-gd-native-ttf --with-libdir=lib/x86_64-linux-gnu --with-gd=shared --enable-gd-native-ttf --with-jpeg-dir=/usr --with-freetype --with-webp-dir=/usr
 	phpbrew ext install raphf
 	phpbrew ext install propro
